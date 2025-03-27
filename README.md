@@ -5,9 +5,11 @@ A new Flutter project.
 ## Getting Started
 
 Projeto de uma game de pedra, papel e tesoura.
-![image](https://github.com/user-attachments/assets/33058b57-b614-40eb-ac23-ae22e166ca7c)
+![image](https://github.com/user-attachments/assets/ecff83e4-4693-4a0c-8168-6ca6371da2c7)
 
-![image](https://github.com/user-attachments/assets/e9a6eafe-23f9-4c89-b95f-ce740fa3de26)
+
+![image](https://github.com/user-attachments/assets/60d9a41e-b0ca-4f65-96a7-22ad021f0ed1)
+
 
 
 
