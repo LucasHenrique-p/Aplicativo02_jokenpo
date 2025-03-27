@@ -4,7 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Projeto de uma game de pedra, papel e tesoura.
+![image](https://github.com/user-attachments/assets/33058b57-b614-40eb-ac23-ae22e166ca7c)
+
+![image](https://github.com/user-attachments/assets/e9a6eafe-23f9-4c89-b95f-ce740fa3de26)
+
+
 
 A few resources to get you started if this is your first Flutter project:
 
