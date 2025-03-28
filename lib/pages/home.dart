@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  List<String> options = ["pedra", "papel", "tesoura"];
+  List<String> options = ["pedra", "papel", "tesoura", "lagarto", "spock"];
   String _message = "";
   String _imagepath = "images/indefinido.png";
   String _imagepathuser = "images/indefinido.png";
@@ -41,9 +41,16 @@ class HomePageState extends State<HomePage> {
     if (choice == randmChoice) {
       _message = "Empatou!";
       _empate++;
-    } else if ((choice == "pedra" && randmChoice == "tesoura") ||
-        (choice == "papel" && randmChoice == "pedra") ||
-        (choice == "tesoura" && randmChoice == "papel")) {
+    } else if ((choice == "pedra" &&
+            (randmChoice == "tesoura" || randmChoice == "lagarto")) ||
+        (choice == "papel" &&
+            (randmChoice == "pedra" || randmChoice == "spock")) ||
+        (choice == "tesoura" &&
+            (randmChoice == "papel" || randmChoice == "lagarto")) ||
+        (choice == "lagarto" &&
+            (randmChoice == "papel" || randmChoice == "spock")) ||
+        (choice == "spock" &&
+            (randmChoice == "tesoura" || randmChoice == "pedra"))) {
       _message = "Você Venceu!!";
       _jogador++;
     } else {
@@ -81,7 +88,7 @@ class HomePageState extends State<HomePage> {
                     "Maquina",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
-                  Image.asset(_imagepath, height: 150),
+                  Image.asset(_imagepath, height: 120),
                 ],
               ),
               Text(
@@ -94,12 +101,12 @@ class HomePageState extends State<HomePage> {
                     "Você",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
-                  Image.asset(_imagepathuser, height: 150),
+                  Image.asset(_imagepathuser, height: 120),
                 ],
               ),
             ],
           ),
-          SizedBox(height: 5),
+          //SizedBox(height: 5),
           Text(
             _message,
             style: TextStyle(
@@ -108,7 +115,7 @@ class HomePageState extends State<HomePage> {
               color: const Color.fromARGB(255, 243, 65, 33),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Text(
             "Placar",
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
@@ -170,31 +177,75 @@ class HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Text(
             "Escolha uma Opção",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
                 onTap: () => _play("pedra"),
-                child: Image.asset("images/pedra.png", height: 80),
+                child: Image.asset("images/pedra.png", height: 70),
               ),
               GestureDetector(
                 onTap: () => _play("papel"),
-                child: Image.asset("images/papel.png", height: 80),
+                child: Image.asset("images/papel.png", height: 70),
               ),
               GestureDetector(
                 onTap: () => _play("tesoura"),
-                child: Image.asset("images/tesoura.png", height: 80),
+                child: Image.asset("images/tesoura.png", height: 70),
               ),
             ],
           ),
-          SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Pedra",
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "Papel",
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "Tesoura",
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                onTap: () => _play("lagarto"),
+                child: Image.asset("images/lagarto.png", height: 70),
+              ),
+              GestureDetector(
+                onTap: () => _play("spock"),
+                child: Image.asset("images/spock.png", height: 70),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Lagarto",
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "Spock",
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: 15),
           ElevatedButton(
             onPressed: _resetarJogo,
             style: ElevatedButton.styleFrom(
